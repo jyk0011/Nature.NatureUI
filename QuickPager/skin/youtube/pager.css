@@ -1,0 +1,18 @@
+div.pager {
+	text-align: right; padding-bottom: 4px; background-color: #cecfce; padding-left: 0px; padding-right: 6px; font-family: arial, helvetica, sans-serif; color: #313031; font-size: 13px; border-top: #9c9a9c 1px dotted; padding-top: 4px
+}
+div.pager a {
+	padding-bottom: 1px; margin: 0px 1px; padding-left: 3px; padding-right: 3px; color: #0030ce; font-weight: bold; text-decoration: underline; padding-top: 1px
+}
+div.pager a:hover {
+	
+}
+div.pager a:active {
+	
+}
+div.pager span.current {
+	padding-bottom: 1px; background-color: #fff; padding-left: 2px; padding-right: 2px; color: #000; padding-top: 1px
+}
+div.pager span.disabled {
+	display: none
+}

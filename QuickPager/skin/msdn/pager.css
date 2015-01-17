@@ -1,0 +1,18 @@
+div.pager {
+	text-align: right; padding-bottom: 4px; background-color: #fff; padding-left: 0px; padding-right: 6px; font-family: verdana,tahoma,arial,helvetica,sans-serif; color: #313031; font-size: 13px; padding-top: 4px
+}
+div.pager a {
+	border-bottom: #b7d8ee 1px solid; border-left: #b7d8ee 1px solid; padding-bottom: 4px; margin: 0px 3px; padding-left: 5px; padding-right: 6px; color: #0030ce; border-top: #b7d8ee 1px solid; border-right: #b7d8ee 1px solid; text-decoration: none; padding-top: 5px
+}
+div.pager a:hover {
+	border-bottom: #b7d8ee 1px solid; border-left: #b7d8ee 1px solid; background-color: #d2eaf6; color: #0066a7; border-top: #b7d8ee 1px solid; border-right: #b7d8ee 1px solid
+}
+div.pager a:active {
+	border-bottom: #b7d8ee 1px solid; border-left: #b7d8ee 1px solid; background-color: #d2eaf6; color: #0066a7; border-top: #b7d8ee 1px solid; border-right: #b7d8ee 1px solid
+}
+div.pager span.current {
+	border-bottom: #b7d8ee 1px solid; border-left: #b7d8ee 1px solid; padding-bottom: 4px; background-color: #d2eaf6; margin: 0px 3px; padding-left: 5px; padding-right: 6px; color: #444444; border-top: #b7d8ee 1px solid; font-weight: bold; border-right: #b7d8ee 1px solid; padding-top: 5px
+}
+div.pager span.disabled {
+	display: none
+}

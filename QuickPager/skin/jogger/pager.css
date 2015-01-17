@@ -1,0 +1,18 @@
+div.pager {
+	padding-bottom: 2px; margin: 7px; padding-left: 2px; padding-right: 2px; font-family: "lucida sans unicode", "lucida grande", lucidagrande, "lucida sans", geneva, verdana, sans-serif; padding-top: 2px
+}
+div.pager a {
+	padding-bottom: 0.43em; background-color: #ee4e4e; margin: 2px; padding-left: 0.64em; padding-right: 0.64em; color: #fff; text-decoration: none; padding-top: 0.5em
+}
+div.pager a:hover {
+	padding-bottom: 0.43em; background-color: #de1818; margin: 2px; padding-left: 0.64em; padding-right: 0.64em; color: #fff; padding-top: 0.5em
+}
+div.pager a:active {
+	padding-bottom: 0.43em; background-color: #de1818; margin: 2px; padding-left: 0.64em; padding-right: 0.64em; color: #fff; padding-top: 0.5em
+}
+div.pager span.current {
+	padding-bottom: 0.43em; background-color: #f6efcc; margin: 2px; padding-left: 0.64em; padding-right: 0.64em; color: #6d643c; padding-top: 0.5em
+}
+div.pager span.disabled {
+	display: none
+}

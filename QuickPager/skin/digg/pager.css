@@ -1,0 +1,18 @@
+div.pager {
+	text-align: center; padding-bottom: 3px; margin: 3px; padding-left: 3px; padding-right: 3px; padding-top: 3px
+}
+div.pager a {
+	border-bottom: #aaaadd 1px solid; border-left: #aaaadd 1px solid; padding-bottom: 2px; margin: 2px; padding-left: 5px; padding-right: 5px; color: #000099; border-top: #aaaadd 1px solid; border-right: #aaaadd 1px solid; text-decoration: none; padding-top: 2px
+}
+div.pager a:hover {
+	border-bottom: #000099 1px solid; border-left: #000099 1px solid; color: #000; border-top: #000099 1px solid; border-right: #000099 1px solid
+}
+div.pager a:active {
+	border-bottom: #000099 1px solid; border-left: #000099 1px solid; color: #000; border-top: #000099 1px solid; border-right: #000099 1px solid
+}
+div.pager span.current {
+	border-bottom: #000099 1px solid; border-left: #000099 1px solid; padding-bottom: 2px; background-color: #000099; margin: 2px; padding-left: 5px; padding-right: 5px; color: #fff; border-top: #000099 1px solid; font-weight: bold; border-right: #000099 1px solid; padding-top: 2px
+}
+div.pager span.disabled {
+	border-bottom: #eee 1px solid; border-left: #eee 1px solid; padding-bottom: 2px; margin: 2px; padding-left: 5px; padding-right: 5px; color: #ddd; border-top: #eee 1px solid; border-right: #eee 1px solid; padding-top: 2px
+}

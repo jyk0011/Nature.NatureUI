@@ -1,0 +1,19 @@
+div.pager {
+	text-align: center; padding-bottom: 10px; background-color: #000; margin: 3px; padding-left: 3px; padding-right: 3px; color: #a0a0a0; font-size: 80%; padding-top: 10px
+}
+div.pager a {
+	background-image: url(bar.gif); border-bottom: #909090 1px solid; border-left: #909090 1px solid; padding-bottom: 2px; padding-left: 5px; padding-right: 5px; background-position: 50% bottom; color: #c0c0c0; border-top: #909090 1px solid; margin-right: 3px; border-right: #909090 1px solid; text-decoration: none; padding-top: 2px
+}
+div.pager a:hover {
+	background-image: url(invbar.gif); border-bottom: #f0f0f0 1px solid; border-left: #f0f0f0 1px solid; background-color: #404040; color: #ffffff; border-top: #f0f0f0 1px solid; border-right: #f0f0f0 1px solid
+}
+div.pager a:active {
+	background-image: url(invbar.gif); border-bottom: #f0f0f0 1px solid; border-left: #f0f0f0 1px solid; background-color: #404040; color: #ffffff; border-top: #f0f0f0 1px solid; border-right: #f0f0f0 1px solid
+}
+div.pager span.current {
+	border-bottom: #ffffff 1px solid; border-left: #ffffff 1px solid; padding-bottom: 2px; background-color: #606060; padding-left: 5px; padding-right: 5px; color: #ffffff; border-top: #ffffff 1px solid; font-weight: bold; margin-right: 3px; border-right: #ffffff 1px solid; padding-top: 2px
+}
+div.pager span.disabled {
+	border-bottom: #606060 1px solid; border-left: #606060 1px solid; padding-bottom: 2px; padding-left: 5px; padding-right: 5px; color: #808080; border-top: #606060 1px solid; margin-right: 3px; border-right: #606060 1px solid; padding-top: 2px
+}
+ 
