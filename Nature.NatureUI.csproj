@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B90E92B2-2A81-43A3-B057-9E0FCE2554C7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Nature.NatureUI1</RootNamespace>
+    <AssemblyName>Nature.NatureUI1</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Customer\DocAjax.js" />
+    <Content Include="Customer\DocCreate.js" />
+    <Content Include="Customer\FormBind\formBind11804.js" />
+    <Content Include="Customer\FormBind\formBind12603.js" />
+    <Content Include="Customer\FormBind\formBind12703.js" />
+    <Content Include="Customer\FormBind\formBind12803.js" />
+    <Content Include="Customer\FormBind\formBind13205.js" />
+    <Content Include="Customer\FormBind\formBind16504.js" />
+    <Content Include="NatureAjax\jQuery.command.js" />
+    <Content Include="NatureAjax\jQuery.cookie.js" />
+    <Content Include="NatureAjax\jQuery.drag.js" />
+    <Content Include="NatureAjax\jQuery.dragClick.js" />
+    <Content Include="NatureAjax\jQuery.loadJs.js" />
+    <Content Include="NatureAjax\jQuery.lockTable.js" />
+    <Content Include="NatureAjax\Nature.Adapter.js" />
+    <Content Include="NatureAjax\nature.ajax.js" />
+    <Content Include="NatureAjax\Nature.Control.Base.js" />
+    <Content Include="NatureAjax\Nature.Control.Base.List.js" />
+    <Content Include="NatureAjax\Nature.Control.Base.Text.js" />
+    <Content Include="NatureAjax\Nature.Control.Base.UnionList.js" />
+    <Content Include="NatureAjax\Nature.Control.ButtonBar.js" />
+    <Content Include="NatureAjax\Nature.Control.DataSource.js" />
+    <Content Include="NatureAjax\Nature.Control.Find.js" />
+    <Content Include="NatureAjax\Nature.Control.Form.check.js" />
+    <Content Include="NatureAjax\Nature.Control.Form.js" />
+    <Content Include="NatureAjax\Nature.Control.Form.Post.js" />
+    <Content Include="NatureAjax\Nature.Control.Grid.Event.js" />
+    <Content Include="NatureAjax\Nature.Control.Grid.Format.js" />
+    <Content Include="NatureAjax\Nature.Control.Grid.js" />
+    <Content Include="NatureAjax\Nature.Control.GridForm.js" />
+    <Content Include="NatureAjax\Nature.Control.OutputExcel.js" />
+    <Content Include="NatureAjax\Nature.Data.Cache.js" />
+    <Content Include="NatureAjax\Nature.Data.CusData.js" />
+    <Content Include="NatureAjax\Nature.Data.LoadData.js" />
+    <Content Include="NatureAjax\Nature.Data.Manager.js" />
+    <Content Include="NatureAjax\nature.Debug.js" />
+    <Content Include="NatureAjax\nature.head.js" />
+    <Content Include="NatureAjax\Nature.Init.js" />
+    <Content Include="NatureAjax\Nature.JsFileList.js" />
+    <Content Include="NatureAjax\Nature.LoadJs.js" />
+    <Content Include="NatureAjax\Nature.ManageData.Ajax.js" />
+    <Content Include="NatureAjax\Nature.ManageData.Cache.js" />
+    <Content Include="NatureAjax\Nature.ManageData.GetData.js" />
+    <Content Include="NatureAjax\Nature.ManageData.GetMeta.js" />
+    <Content Include="NatureAjax\Nature.ManageData.Load.js" />
+    <Content Include="NatureAjax\nature.Page.DeleteData.js" />
+    <Content Include="NatureAjax\nature.Page.Tab.js" />
+    <Content Include="NatureAjax\nature.Page.Tree.js" />
+    <Content Include="NatureAjax\nature.Pager.DataForm.js" />
+    <Content Include="NatureAjax\nature.Pager.DataIframe.js" />
+    <Content Include="NatureAjax\nature.Pager.DataList.js" />
+    <Content Include="NatureAjax\nature.Pager.Index.js" />
+    <Content Include="NatureAjax\nature.QuickPager2.0.js" />
+    <Content Include="NatureAjax\Nature.Reg.js" />
+    <Content Include="NatureAjax\Nature.ShortcutKey.js" />
+    <Content Include="NatureAjax\ver.js" />
+    <Content Include="NatureRole\nature.CommonModule.ModuleForRole.js" />
+    <Content Include="NatureRole\nature.CommonModule.ModuleForRoleColumns.js" />
+    <Content Include="Nature\buttonEvent.js" />
+    <Content Include="Nature\check.js" />
+    <Content Include="Nature\EventIndex.js" />
+    <Content Include="Nature\UIFunction.js" />
+    <Content Include="QuickPager\nature.QuickPager2.0.js" />
+    <Content Include="QuickPager\nature.QuickPager2.1.js" />
+    <Content Include="QuickPager\PageTurn1.htm" />
+    <Content Include="QuickPager\PageTurn2.htm" />
+    <Content Include="QuickPager\PageTurn201.htm" />
+    <Content Include="QuickPager\PageTurn202.htm" />
+    <Content Include="QuickPager\skin\badoo\pager.css" />
+    <Content Include="QuickPager\skin\black-green\pager.css" />
+    <Content Include="QuickPager\skin\black-red\pager.css" />
+    <Content Include="QuickPager\skin\black2\pager.css" />
+    <Content Include="QuickPager\skin\black\pager.css" />
+    <Content Include="QuickPager\skin\default\pager.css" />
+    <Content Include="QuickPager\skin\digg\pager.css" />
+    <Content Include="QuickPager\skin\flickr\pager.css" />
+    <Content Include="QuickPager\skin\grayr\pager.css" />
+    <Content Include="QuickPager\skin\jogger\pager.css" />
+    <Content Include="QuickPager\skin\megas512\pager.css" />
+    <Content Include="QuickPager\skin\meneame\pager.css" />
+    <Content Include="QuickPager\skin\msdn\pager.css" />
+    <Content Include="QuickPager\skin\quotes\pager.css" />
+    <Content Include="QuickPager\skin\sabrosus\pager.css" />
+    <Content Include="QuickPager\skin\scott\pager.css" />
+    <Content Include="QuickPager\skin\starcraft2\pager.css" />
+    <Content Include="QuickPager\skin\technorati\pager.css" />
+    <Content Include="QuickPager\skin\tres\pager.css" />
+    <Content Include="QuickPager\skin\viciao\pager.css" />
+    <Content Include="QuickPager\skin\yahoo2\pager.css" />
+    <Content Include="QuickPager\skin\yahoo\pager.css" />
+    <Content Include="QuickPager\skin\yellow\pager.css" />
+    <Content Include="QuickPager\skin\youtube\pager.css" />
+    <Content Include="upload\expressInstall.swf" />
+    <Content Include="upload\swfobject.js" />
+    <Content Include="upload\swfobject\expressInstall.swf" />
+    <Content Include="upload\swfobject\index.html" />
+    <Content Include="upload\swfobject\index_dynamic.html" />
+    <Content Include="upload\swfobject\src\swfobject.js" />
+    <Content Include="upload\swfobject\swfobject.js" />
+    <Content Include="upload\swfobject\test.swf" />
+    <Content Include="upload\test.swf" />
+    <Content Include="upload\复件 swf示例.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="upload\swfobject\src\expressInstall.as" />
+    <Content Include="upload\swfobject\src\expressInstall.fla" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2236</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

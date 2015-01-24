@@ -103,160 +103,164 @@ Nature.Controls.ButtonBar = function (btnEvent) {
 
         for (var i = 0; i < key.length; i++) {
             var tmpBtn = button[key[i]];
-            tmp = buttonTemplet.replace(/\{id\}/g, tmpBtn.ButtonID);
-            tmp = tmp.replace(/\{BtnTitle\}/g, tmpBtn.BtnTitle);
-            tmp = tmp.replace(/\{btnType\}/g, "t" + tmpBtn.BtnTypeID);
-            
-            if (tmpBtn.IsNeedSelect) {
+            if (typeof tmpBtn != "undefined") {
+
+                tmp = buttonTemplet.replace(/\{id\}/g, tmpBtn.ButtonID);
+                tmp = tmp.replace(/\{BtnTitle\}/g, tmpBtn.BtnTitle);
+                tmp = tmp.replace(/\{btnType\}/g, "t" + tmpBtn.BtnTypeID);
+
+                if (tmpBtn.IsNeedSelect) {
+                    //需要选择记录，设置为不可用 btnEnable
+                    tmp = tmp.replace(/\{CanUse\}/g, "disabled=\"disabled\" ");
+                    tmp = tmp.replace(/\{title\}/g, "请先选择记录，然后再单击按钮。");
+                    tmp = tmp.replace(/\{cssbtn\}/g, "btn_disabled");
+                } else {
+                    tmp = tmp.replace(/\{CanUse\}/g, "");
+                    tmp = tmp.replace(/\{title\}/g, "");
+                    tmp = tmp.replace(/\{cssbtn\}/g, "input_01");
+                }
+
+                var tmpButton = $(tmp);
+
+                var btnValue = tmpButton.val();
+                var btnValues = btnValue.split('_');
+
+                //添加是否需要选择记录的标记，翻页后重置按钮状态
                 //需要选择记录，设置为不可用 btnEnable
-                tmp = tmp.replace(/\{CanUse\}/g, "disabled=\"disabled\" ");
-                tmp = tmp.replace(/\{title\}/g, "请先选择记录，然后再单击按钮。");
-                tmp = tmp.replace(/\{cssbtn\}/g, "btn_disabled");
-            } else {
-                tmp = tmp.replace(/\{CanUse\}/g, "");
-                tmp = tmp.replace(/\{title\}/g, "");
-                tmp = tmp.replace(/\{cssbtn\}/g, "input_01");
-            }
+                tmpButton.data("IsNeedSelect", tmpBtn.IsNeedSelect);
 
-            var tmpButton = $(tmp);
+                //按钮的单击事件
+                switch (tmpBtn.BtnTypeID) {
+                case 401:
+                //查看数据
+                case 402:
+                //添加数据
+                case 403:
+                //修改数据
+                case 408:
+                    //如果没有数据，则先添加一条空数据，然后修改数据
+                        //tmpButton.click(tmpBtn, openWeb);
+                    if (typeof(buttonEvent.urlPara.buttonId) == "undefined")
+                        tmpBtn.parentPVid = buttonEvent.urlPara.moduleID;
+                    else
+                        tmpBtn.parentPVid = buttonEvent.urlPara.buttonId;
 
-            var btnValue = tmpButton.val();
-            var btnValues = btnValue.split('_');
-         
-            //添加是否需要选择记录的标记，翻页后重置按钮状态
-            //需要选择记录，设置为不可用 btnEnable
-            tmpButton.data("IsNeedSelect", tmpBtn.IsNeedSelect);
+                    tmpButton.click(
+                        { btnInfo: tmpBtn, onClick: buttonEvent.openWeb },
+                        function(eventInfo) {
+                            Nature.CommonFunction.isTimeOut(function(infos) {
+                                if (infos.state == "1") {
+                                    var tmpBtnInfo = eventInfo.data.btnInfo;
+                                    eventInfo.data.onClick(tmpBtnInfo);
+                                    //注册tab的信息
+                                    var tmpTab = parent.mainEvent.tab["tab" + tmpBtnInfo.ModuleID];
+                                    if (typeof(tmpTab) != "undefined") {
+                                        //tab里的列表
+                                        tmpTab.btnIDs["div_Mod_" + tmpBtnInfo.ButtonID] = 1;
+                                    } else {
+                                        //打开的列表，寻找父节点路径
+                                        var parentPv = parent.mainEvent.tabDiv["btn" + tmpBtnInfo.parentPVid];
 
-            //按钮的单击事件
-            switch (tmpBtn.BtnTypeID) {
-            case 401:
-            //查看数据
-            case 402:
-            //添加数据
-            case 403:
-            //修改数据
-            case 408:
-                //如果没有数据，则先添加一条空数据，然后修改数据
-                    //tmpButton.click(tmpBtn, openWeb);
-                if (typeof (buttonEvent.urlPara.buttonId) == "undefined")
-                    tmpBtn.parentPVid = buttonEvent.urlPara.moduleID;
-                else
-                    tmpBtn.parentPVid = buttonEvent.urlPara.buttonId;
+                                        //设置tab的 btnIDs 
+                                        //parent.mainEvent.tab["tab" + parentPv.parentIdPath[0]].btnIDs["div_Mod_" + tmpBtnInfo.ButtonID] = 1;
 
-                tmpButton.click(
-                    { btnInfo: tmpBtn, onClick: buttonEvent.openWeb },
-                    function (eventInfo) {
-                        Nature.CommonFunction.isTimeOut(function(infos) {
-                            if (infos.state == "1") {
-                                var tmpBtnInfo = eventInfo.data.btnInfo;
-                                eventInfo.data.onClick(tmpBtnInfo);
-                                //注册tab的信息
-                                var tmpTab = parent.mainEvent.tab["tab" + tmpBtnInfo.ModuleID];
-                                if (typeof(tmpTab) != "undefined") {
-                                    //tab里的列表
-                                    tmpTab.btnIDs["div_Mod_" + tmpBtnInfo.ButtonID] = 1;
-                                } else {
-                                    //打开的列表，寻找父节点路径
-                                    var parentPv = parent.mainEvent.tabDiv["btn" + tmpBtnInfo.parentPVid];
+                                    }
 
-                                    //设置tab的 btnIDs 
-                                    //parent.mainEvent.tab["tab" + parentPv.parentIdPath[0]].btnIDs["div_Mod_" + tmpBtnInfo.ButtonID] = 1;
-
-                                }
-
-                            } else
-                                buttonEvent.onTimeOut();
+                                } else
+                                    buttonEvent.onTimeOut();
+                            });
                         });
-                    });
-                
-                /*设置按钮的快捷键*/
-                if (btnValues.length > 1) {
-                    tmpButton.val(btnValues[0] + "(" + btnValues[1] + ")");
-                    onKey.reg(btnValues[1].toLocaleUpperCase().charCodeAt(), buttonEvent.openWeb, tmpBtn, buttonEvent.win.document);
-                }
-                
-                break;
-            case 404:
-            //物理删除数据
-            case 412:
-                //逻辑删除数据
-                tmpButton.click(
-                    { btnInfo: tmpBtn, onClick: buttonEvent.onDelete },
-                    function(eventInfo) {
-                        Nature.CommonFunction.isTimeOut(function(infos) {
-                            if (infos.state == "1")
-                                eventInfo.data.onClick(eventInfo.data.btnInfo);
-                            else
-                                buttonEvent.onTimeOut();
+
+                    /*设置按钮的快捷键*/
+                    if (btnValues.length > 1) {
+                        tmpButton.val(btnValues[0] + "(" + btnValues[1] + ")");
+                        onKey.reg(btnValues[1].toLocaleUpperCase().charCodeAt(), buttonEvent.openWeb, tmpBtn, buttonEvent.win.document);
+                    }
+
+                    break;
+                case 404:
+                //物理删除数据
+                case 412:
+                    //逻辑删除数据
+                    tmpButton.click(
+                        { btnInfo: tmpBtn, onClick: buttonEvent.onDelete },
+                        function(eventInfo) {
+                            Nature.CommonFunction.isTimeOut(function(infos) {
+                                if (infos.state == "1")
+                                    eventInfo.data.onClick(eventInfo.data.btnInfo);
+                                else
+                                    buttonEvent.onTimeOut();
+                            });
                         });
-                    });
-                break;
-            case 405:
-                //打开查询界面 
-                //tmpButton.hide();
-                tmpButton.click(
-                    { btnInfo: tmpBtn, onClick: buttonEvent.onSearch },
-                    function (eventInfo) {
-                        eventInfo.data.onClick(eventInfo.data.btnInfo);
-                    });
-                
-                /*设置按钮的快捷键*/
-                if (btnValues.length > 1) {
-                    tmpButton.val(btnValues[0] + "(" + btnValues[1] + ")");
-                    onKey.reg(btnValues[1].toLocaleUpperCase().charCodeAt(), buttonEvent.onSearch, tmpBtn, buttonEvent.win.document);
-                }
-                
-                break;
-            case 406:
+                    break;
+                case 405:
+                    //打开查询界面 
+                        //tmpButton.hide();
+                    tmpButton.click(
+                        { btnInfo: tmpBtn, onClick: buttonEvent.onSearch },
+                        function(eventInfo) {
+                            eventInfo.data.onClick(eventInfo.data.btnInfo);
+                        });
+
+                    /*设置按钮的快捷键*/
+                    if (btnValues.length > 1) {
+                        tmpButton.val(btnValues[0] + "(" + btnValues[1] + ")");
+                        onKey.reg(btnValues[1].toLocaleUpperCase().charCodeAt(), buttonEvent.onSearch, tmpBtn, buttonEvent.win.document);
+                    }
+
+                    break;
+                case 406:
                 //导出到Excel
-                
-            case 407:
-                //导出到Access
-                //tmpButton.click(tmpBtn, onOutput);
-                tmpButton.click(
-                    { btnInfo: tmpBtn, onClick: buttonEvent.onOutput },
-                    function(eventInfo) {
-                        Nature.CommonFunction.isTimeOut(function(infos) {
-                            if (infos.state == "1")
-                                eventInfo.data.onClick(eventInfo.data.btnInfo);
-                            else
-                                buttonEvent.onTimeOut();
+                case 407:
+                    //导出到Access
+                        //tmpButton.click(tmpBtn, onOutput);
+                    tmpButton.click(
+                        { btnInfo: tmpBtn, onClick: buttonEvent.onOutput },
+                        function(eventInfo) {
+                            Nature.CommonFunction.isTimeOut(function(infos) {
+                                if (infos.state == "1")
+                                    eventInfo.data.onClick(eventInfo.data.btnInfo);
+                                else
+                                    buttonEvent.onTimeOut();
+                            });
                         });
-                    });
-                break;
-            case 411:
-                //超链接
-                //tmpButton.click(tmpBtn, btnOpenWeb);
-                tmpButton.click(
-                   { btnInfo: tmpBtn, onClick: buttonEvent.openWeb },
-                   function (eventInfo) {
-                       Nature.CommonFunction.isTimeOut(function (infos) {
-                           if (infos.state == "1") {
-                               var tmpBtnInfo = eventInfo.data.btnInfo;
-                               eventInfo.data.onClick(tmpBtnInfo);
-
-                           } else
-                               buttonEvent.onTimeOut();
-                       });
-                   });
-                break;
-            }
-
-            //判断类型
-            switch (tmpBtn.BtnKind) {
-                case 1://按钮
                     break;
-                case 2://连接
+                case 411:
+                    //超链接
+                        //tmpButton.click(tmpBtn, btnOpenWeb);
+                    tmpButton.click(
+                        { btnInfo: tmpBtn, onClick: buttonEvent.openWeb },
+                        function(eventInfo) {
+                            Nature.CommonFunction.isTimeOut(function(infos) {
+                                if (infos.state == "1") {
+                                    var tmpBtnInfo = eventInfo.data.btnInfo;
+                                    eventInfo.data.onClick(tmpBtnInfo);
+
+                                } else
+                                    buttonEvent.onTimeOut();
+                            });
+                        });
                     break;
-                case 3://隐藏不显示
+                }
+
+                //判断类型
+                switch (tmpBtn.BtnKind) {
+                case 1:
+                    //按钮
+                    break;
+                case 2:
+                    //连接
+                    break;
+                case 3:
+                    //隐藏不显示
                     tmpButton.hide();
                     break;
+                }
+                //$("#" + buttonEvent.divID).append(tmpButton);
+                buttonEvent.divID.append(tmpButton);
             }
-            //$("#" + buttonEvent.divID).append(tmpButton);
-            buttonEvent.divID.append(tmpButton);
 
 
-          
         }
 
         //创建完毕，执行回调函数

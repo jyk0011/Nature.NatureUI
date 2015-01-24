@@ -68,7 +68,9 @@ Nature.Ajax = function(ajaxInfo) {
             ajaxInfo.xhrFields.withCredentials = true;
         }
     }
-
+    //使用cors的方式实现跨域
+    jQuery.support.cors = true;
+    
     //处理error
     var error = ajaxInfo.error;
     ajaxInfo.error = function(request, textStatus, errorThrown) {
